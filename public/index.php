@@ -1,5 +1,10 @@
 <?php
-
+/**
+ * 
+ *
+ * @package  Laravel
+ * @author   Tommy Adeniyi <webfacemedia@gmail.com>
+ */
 /**
  * Laravel - A PHP Framework For Web Artisans
  *
