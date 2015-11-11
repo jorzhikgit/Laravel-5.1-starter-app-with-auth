@@ -1,0 +1,10 @@
+body{
+	padding-top:60px;
+}
+@media(min-width:768px){
+	#register .form-group{
+		width:50%;
+		float:left;
+		padding:5px;
+	}
+}
