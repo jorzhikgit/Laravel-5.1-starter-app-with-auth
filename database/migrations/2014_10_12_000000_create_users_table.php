@@ -16,7 +16,8 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('firstname');
             $table->string('lastname');
-            $table->string('username')->unique();
+            //$table->string('username')->unique();
+            $table->string('username');// two users with the same username?
             $table->string('email')->unique();
             $table->string('password', 60);
             $table->string('address');

@@ -116,7 +116,7 @@ class AuthController extends Controller {
         switch ($provider) {
             case 'facebook':
                 return User::create([
-                            'username' => $theUser->name,
+                            //'username' => $theUser->name,
                             'email' => $theUser->email,
                             'firstname' => $theUser->user['first_name'],
                             'lastname' => $theUser->user['last_name'],
@@ -128,7 +128,7 @@ class AuthController extends Controller {
                 break;
             case 'google':
                 return User::create([
-                            'username' => $theUser->name,
+                            //'username' => $theUser->name,
                             'email' => $theUser->email,
                             'firstname' => $theUser->user['name']['givenName'],
                             'lastname' => $theUser->user['name']['familyName'],
