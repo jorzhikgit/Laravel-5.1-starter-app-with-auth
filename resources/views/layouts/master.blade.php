@@ -8,6 +8,9 @@
     <meta name="author" content="webfacemedia">
     <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+    
+    <link href="/css/font-awesome.css" rel="stylesheet" type="text/css"/>
+    <link href="/css/bootstrap-social.css" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="/css/style.css" type="text/css">
     <title>Laravel Application With Login: @yield('title')</title>
 

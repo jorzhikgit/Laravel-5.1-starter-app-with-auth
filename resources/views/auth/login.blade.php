@@ -27,6 +27,13 @@
                 <button class="btn btn-primary" type="submit">Login</button>
                 <a class="btn btn-primary" href="{{ url('/password/email') }}">Forgot Password</a>
             </div>
+            <div class="form-group">
+                <a class="btn btn-block btn-social btn-facebook" href="{{ url('/login/facebook') }}">
+                    <span class="fa fa-facebook"></span>
+                    Sign in with Facebook
+                </a>
+            </div>
+
         </form>
         @endsection
     </div>

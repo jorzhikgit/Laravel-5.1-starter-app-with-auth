@@ -31,3 +31,15 @@ Route::post('password/email', 'Auth\PasswordController@postEmail');
 // Password reset routes...
 Route::get('password/reset/{token}', 'Auth\PasswordController@getReset');
 Route::post('password/reset', 'Auth\PasswordController@postReset');
+
+//Social Login
+Route::get('/login/{provider?}',[
+    'uses' => 'Auth\AuthController@getSocialAuth',
+    'as'   => 'auth.getSocialAuth'
+]);
+
+
+Route::get('/login/callback/{provider?}',[
+    'uses' => 'Auth\AuthController@getSocialAuthCallback',
+    'as'   => 'auth.getSocialAuthCallback'
+]);

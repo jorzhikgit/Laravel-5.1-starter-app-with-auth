@@ -4,6 +4,12 @@
 <div class="panel panel-default">
     <div class="panel-heading">Register</div>
     <div class="panel-body">
+        <div class="form-group">
+            <a class="btn btn-block btn-social btn-facebook" href="{{ url('/login/facebook') }}">
+                <span class="fa fa-facebook"></span>
+                Register with Facebook
+            </a>
+            </div>
         <form id="register" method="POST" action="{{ url('/auth/register') }}">
             {!! csrf_field() !!}
             <div class="form-group">
