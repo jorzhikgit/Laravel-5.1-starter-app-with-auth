@@ -30,6 +30,7 @@ class CreateUsersTable extends Migration
             $table->string('picture');
             $table->string('provider_id');
             $table->string('provider');
+            $table->string('token');
             $table->rememberToken();
             $table->timestamps();
         });

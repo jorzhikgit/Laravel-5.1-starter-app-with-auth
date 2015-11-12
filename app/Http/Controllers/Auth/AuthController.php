@@ -86,10 +86,11 @@ class AuthController extends Controller {
     public function getSocialAuthCallback($provider = null) {
         if ($user = $this->socialite->with($provider)->user()) {
             //print_r($user->user['first_name']);
+            //print_r($user->user['name']['familyName']);
             //dd($user);
 
             //Check if user exists if not create them
-            $authUser = $this->findOrCreateUser($user);
+            $authUser = $this->findOrCreateUser($user, $provider);
             //Log them in and redirect
             Auth::login($authUser, true);
             return Redirect::to('/');
@@ -104,22 +105,40 @@ class AuthController extends Controller {
      * @param $theUser
      * @return User
      */
-    private function findOrCreateUser($theUser) {
+    private function findOrCreateUser($theUser,$provider) {
 
 
         if ($authUser = User::where('provider_id', $theUser->id)->first()) {
             return $authUser;
         }
 
-        return User::create([
-                    'username' => $theUser->name,
-                    'email' => $theUser->email,
-                    'firstname' => $theUser->user['first_name'],
-                    'lastname' => $theUser->user['last_name'],
-                    'picture' => $theUser->avatar_original,
-                    'provider_id' => $theUser->id,
-                    'provider' => 'facebook',
-        ]);
+
+        switch ($provider) {
+            case 'facebook':
+                return User::create([
+                            'username' => $theUser->name,
+                            'email' => $theUser->email,
+                            'firstname' => $theUser->user['first_name'],
+                            'lastname' => $theUser->user['last_name'],
+                            'picture' => $theUser->avatar_original,
+                            'provider_id' => $theUser->id,
+                            'provider' => 'facebook',
+                            'token' => $theUser->token,
+                ]);
+                break;
+            case 'google':
+                return User::create([
+                            'username' => $theUser->name,
+                            'email' => $theUser->email,
+                            'firstname' => $theUser->user['name']['givenName'],
+                            'lastname' => $theUser->user['name']['familyName'],
+                            'picture' => $theUser->avatar,
+                            'provider_id' => $theUser->id,
+                            'provider' => 'google',
+                            'token' => $theUser->token,
+                ]);
+                break;
+        }
     }
 
 }
