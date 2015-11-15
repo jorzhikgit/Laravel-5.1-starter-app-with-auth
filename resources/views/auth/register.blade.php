@@ -10,10 +10,16 @@
                 Register with Facebook
             </a>
         </div>
-                <div class="form-group">
+        <div class="form-group">
             <a class="btn btn-block btn-social btn-google" href="{{ url('/login/google') }}">
                 <span class="fa fa-google"></span>
                 Register with Google
+            </a>
+        </div>
+        <div class="form-group">
+            <a class="btn btn-block btn-social btn-github" href="{{ url('/login/github') }}">
+                <span class="fa fa-github"></span>
+                Register with Github
             </a>
         </div>
         <form id="register" method="POST" action="{{ url('/auth/register') }}">

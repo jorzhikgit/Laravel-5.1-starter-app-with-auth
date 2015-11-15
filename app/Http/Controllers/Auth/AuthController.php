@@ -111,7 +111,25 @@ class AuthController extends Controller {
         if ($authUser = User::where('provider_id', $theUser->id)->first()) {
             return $authUser;
         }
+// Get the value from the form
+        /*
+$input['email'] = $theUser->email;
 
+// Must not already exist in the `email` column of `users` table
+$rules = array('email' => 'unique:users,email');
+
+$validator = Validator::make($input, $rules);
+
+if ($validator->fails()) {
+    echo 'That email address is already registered. You sure you don\'t have an account?';
+    return false;
+    exit();
+}
+else {
+    // Register the new user or whatever.
+}
+         
+         */
 
         switch ($provider) {
             case 'facebook':
@@ -135,6 +153,18 @@ class AuthController extends Controller {
                             'picture' => $theUser->avatar,
                             'provider_id' => $theUser->id,
                             'provider' => 'google',
+                            'token' => $theUser->token,
+                ]);
+                break;
+            case 'github':
+                return User::create([
+                            //'username' => $theUser->name,
+                            'email' => $theUser->email,
+                            //'firstname' => $theUser->name,
+                            //'lastname' => $theUser->user['name'],
+                            'picture' => $theUser->avatar,
+                            'provider_id' => $theUser->id,
+                            'provider' => 'github',
                             'token' => $theUser->token,
                 ]);
                 break;

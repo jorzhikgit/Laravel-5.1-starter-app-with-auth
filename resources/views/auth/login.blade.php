@@ -40,6 +40,12 @@
                     Sign in with Google
                 </a>
             </div>
+            <div class="form-group">
+                <a class="btn btn-block btn-social btn-github" href="{{ url('/login/github') }}">
+                    <span class="fa fa-github"></span>
+                    Sign in with Github
+                </a>
+            </div>
         </form>
         @endsection
     </div>
