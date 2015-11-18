@@ -85,8 +85,7 @@ class AuthController extends Controller {
 
     public function getSocialAuthCallback($provider = null) {
         if ($user = $this->socialite->with($provider)->user()) {
-            //print_r($user->user['first_name']);
-            //print_r($user->user['name']['familyName']);
+
             //dd($user);
 
             //Check if user exists if not create them
@@ -107,29 +106,13 @@ class AuthController extends Controller {
      */
     private function findOrCreateUser($theUser,$provider) {
 
-
-        if ($authUser = User::where('provider_id', $theUser->id)->first()) {
+        // Check for user by provider or check by email
+        // Even if they used a different provider to sign up, their email cannot be a duplicate
+        if ($authUser = User::where('provider_id', $theUser->id)->orWhere('email', $theUser->email)->first()) {
             return $authUser;
         }
-// Get the value from the form
-        /*
-$input['email'] = $theUser->email;
 
-// Must not already exist in the `email` column of `users` table
-$rules = array('email' => 'unique:users,email');
-
-$validator = Validator::make($input, $rules);
-
-if ($validator->fails()) {
-    echo 'That email address is already registered. You sure you don\'t have an account?';
-    return false;
-    exit();
-}
-else {
-    // Register the new user or whatever.
-}
-         
-         */
+        // Register the new user
 
         switch ($provider) {
             case 'facebook':
