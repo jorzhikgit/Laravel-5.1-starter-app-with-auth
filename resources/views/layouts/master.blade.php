@@ -9,9 +9,9 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
     
-    <link href="/css/font-awesome.css" rel="stylesheet" type="text/css"/>
-    <link href="/css/bootstrap-social.css" rel="stylesheet" type="text/css"/>
-    <link rel="stylesheet" href="/css/style.css" type="text/css">
+    <link href="{{ asset('assets/css/font-awesome.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ asset('assets/css/bootstrap-social.css') }}" rel="stylesheet" type="text/css"/>
+    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" type="text/css">
     <title>Laravel Application With Login: @yield('title')</title>
 
   </head>
@@ -36,7 +36,7 @@
             <li><a href="/auth/login">Login</a></li>
             <li><a href="/auth/register">Register</a></li>
              @endif
-            <li><a href="#contact">Contact</a></li>
+           
           </ul>
         </div><!--/.nav-collapse -->
       </div>
